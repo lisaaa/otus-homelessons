@@ -5,28 +5,32 @@ import java.util.List;
 
 public class Box <T extends Fruit> implements  Comparable<Box> {
     private List<T> fruits = new ArrayList<>();
-    private int weight;
+    private int weight = 0;
 
     public void addFruit(List<? extends Fruit> f){
-        weight = 0;
         for (int i = 0; i < f.size(); i++) {
             fruits.add(i, (T) f.get(i));
-            weight += f.get(i).getWeight();
         }
+        this.weight = accountWeightBox();
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
     }
 
     public int accountWeightBox(){
-         weight = 0;
+         this.weight = 0;
         for (int i = 0; i < this.fruits.size(); i++) {
-            weight += fruits.get(i).getWeight();
+            this.weight += fruits.get(i).getWeight();
         }
-        System.out.println(weight);
-        return weight;
+        return this.weight;
     }
 
     public void interlandFruit(Box b){
         this.fruits.addAll(b.fruits);
-        weight = accountWeightBox();
+        this.weight = accountWeightBox();
+        b.fruits.removeAll(b.fruits);
+        b.setWeight(0);
     }
 
     public boolean compare(Box box){
@@ -37,7 +41,7 @@ public class Box <T extends Fruit> implements  Comparable<Box> {
 
     @Override
     public int compareTo(Box box) {
-        return this.weight - box.weight;
+        return accountWeightBox() - box.accountWeightBox();
     }
 
     @Override
