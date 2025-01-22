@@ -24,9 +24,10 @@ public class App {
 
         b1.accountWeightBox();
         b2.accountWeightBox();
-        b1.interlandFruit(b2);
-        //System.out.println("сравним коробки " + b1.compareTo(b2));
-        //System.out.println("сравним коробки " + b1.compare(b2));
+       // b1.interlandFruit(b2);
+        System.out.println(b2.toString());
+        System.out.println("сравним коробки " + b1.compareTo(b2));
+        System.out.println("сравним коробки " + b1.compare(b2));
 
         System.out.println(b1.toString());
 
