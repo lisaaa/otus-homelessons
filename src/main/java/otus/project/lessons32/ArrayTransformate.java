@@ -17,7 +17,6 @@ public class ArrayTransformate {
                 a = i;
             }
         }
-        try {
             if (a != -1) {
                 for (int j = a; j < array.length; j++) {
                     if (array[j] != 1) {
@@ -29,10 +28,8 @@ public class ArrayTransformate {
                 LOGGER.error("Ошибка! {}", "В массиве не найдена 1");
                 throw new RuntimeException("В массиве не найдена 1");
             }
-        } finally {
-
         }
-    }
+
     public boolean hasArrayNumbers1Or2(int[] array) {
         boolean isCheckOneOrTwo = false;
         for (int i = 0; i < array.length; i++) {

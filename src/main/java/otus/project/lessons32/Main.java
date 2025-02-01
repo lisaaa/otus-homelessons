@@ -12,8 +12,8 @@ public class Main {
         int[]arr5 = {1, 1, 1, 1, 1};
         int[]arr6 = {6, 6, 6, 6, 6};
 
-       // System.out.println(new ArrayTransformate().returnArray2(arr2));
-        System.out.println(new ArrayTransformate().hasArrayNumbers1Or2(arr6));
+        System.out.println(new ArrayTransformate().returnArray2(arr2));
+       // System.out.println(new ArrayTransformate().hasArrayNumbers1Or2(arr1));
     }
 
 
