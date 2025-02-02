@@ -9,8 +9,8 @@ public class ArrayTransformate {
 
     private static final Logger LOGGER = LogManager.getLogger(Main.class);
 
-    public ArrayList<Integer> returnArray2(int[] array) throws RuntimeException {
-        ArrayList<Integer> arrayInt = new ArrayList<>();
+    public int[] returnArray2(int[] array) throws RuntimeException {
+        ArrayList<Integer> listInt = new ArrayList<>();
         int a = -1;
         for (int i = 0; i < array.length; i++) {
             if (array[i] == 1) {
@@ -20,9 +20,10 @@ public class ArrayTransformate {
             if (a != -1) {
                 for (int j = a; j < array.length; j++) {
                     if (array[j] != 1) {
-                        arrayInt.add(array[j]);
+                        listInt.add(array[j]);
                     }
                 }
+                int[] arrayInt = listInt.stream().mapToInt(i->i).toArray();
                 return arrayInt;
             } else {
                 LOGGER.error("Ошибка! {}", "В массиве не найдена 1");
@@ -30,14 +31,18 @@ public class ArrayTransformate {
             }
         }
 
-    public boolean hasArrayNumbers1Or2(int[] array) {
-        boolean isCheckOneOrTwo = false;
+    public boolean hasArrayNumbers1or2(int[] array) {
+        boolean isCheck = false;
         for (int i = 0; i < array.length; i++) {
-            if (array[i] != 1 && array[i] != 2){
-                isCheckOneOrTwo = false;
+            if (array[i] != 1 ){
+                isCheck = false;
                 break;
-            } else isCheckOneOrTwo = true;
+            } else if (array[i] != 2){
+                isCheck = false;
+                break;
+            } else isCheck = true;
+
         }
-        return isCheckOneOrTwo;
+        return isCheck;
     }
 }

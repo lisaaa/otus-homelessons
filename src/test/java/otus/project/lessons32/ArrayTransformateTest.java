@@ -4,8 +4,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.List;
 
 class ArrayTransformateTest {
 
@@ -25,41 +23,48 @@ class ArrayTransformateTest {
 
     @Test
     void testArrayWith2FirstPosition() {
-        ArrayList<Integer> result = arrayTransformate.returnArray2(new int[]{1, 2, 2, 2, 2});
+        int[] result = arrayTransformate.returnArray2(new int[]{1, 2, 2, 2, 2});
 
-        ArrayList<Integer> expected =  new ArrayList<>(List.of(2,2,2,2));
+        int[] expected = new int[]{2,2,2,2};
 
-        Assertions.assertEquals(expected, result);
+        Assertions.assertArrayEquals(expected, result);
     }
 
     @Test
     void testArrayWith2LastPosition() {
-        ArrayList<Integer> result = arrayTransformate.returnArray2(new int[]{1, 2, 2, 2, 1});
+        int[] result = arrayTransformate.returnArray2(new int[]{1, 2, 2, 2, 1});
 
-        ArrayList<Integer> expected =  new ArrayList<>();
+        int[] expected = new int[0];
 
-        Assertions.assertEquals(expected, result);
+        Assertions.assertArrayEquals(expected, result);
     }
 
     @Test
     void testeArrayWith1() {
-        boolean result = arrayTransformate.hasArrayNumbers1Or2(new int[]{1, 1, 1, 1, 1});
+        boolean result = arrayTransformate.hasArrayNumbers1or2(new int[]{1, 1, 1, 1, 1});
 
-        Assertions.assertEquals(true, result);
+        Assertions.assertFalse(result);
     }
 
     @Test
     void testArrayWith2() {
-        boolean result = arrayTransformate.hasArrayNumbers1Or2(new int[]{2, 2, 2, 2, 2});
+        boolean result = arrayTransformate.hasArrayNumbers1or2(new int[]{2, 2, 2, 2, 2});
 
-        Assertions.assertEquals(true, result);
+        Assertions.assertFalse(result);
     }
 
     @Test
     void testArrayWithOtherNumbers() {
-        boolean result = arrayTransformate.hasArrayNumbers1Or2(new int[]{2, 5, 2, 2, 2});
+        boolean result = arrayTransformate.hasArrayNumbers1or2(new int[]{1, 5, 2, 2, 2});
 
-        Assertions.assertEquals(false, result);
+        Assertions.assertFalse(result);
+    }
+
+    @Test
+    void testArrayWith1And2() {
+        boolean result = arrayTransformate.hasArrayNumbers1or2(new int[]{1, 1, 2, 2, 2});
+
+        Assertions.assertFalse(result);
     }
 
 }
